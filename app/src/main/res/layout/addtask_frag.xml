@@ -68,11 +68,21 @@
                         android:id="@+id/add_task_description_edit_text"
                         android:background="@null"
                         android:layout_width="match_parent"
-                        android:layout_height="350dp"
+                        android:layout_height="300dp"
                         android:gravity="top"
                         android:hint="@string/description_hint"
                         android:imeOptions="flagNoExtractUi"
                         android:text="@={viewmodel.description}" />
+
+                    <EditText
+                        android:id="@+id/add_task_comment_edit_text"
+                        android:background="@null"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:gravity="top"
+                        android:hint="@string/comment_hint"
+                        android:imeOptions="flagNoExtractUi"
+                        android:text="@={viewmodel.comment}" />
 
                 </LinearLayout>
             </ScrollView>

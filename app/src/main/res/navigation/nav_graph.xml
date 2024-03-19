@@ -77,6 +77,9 @@
             android:id="@+id/action_addEditTaskFragment_to_tasksFragment"
             app:destination="@id/tasks_fragment_dest"
             />
+        <action
+            android:id="@+id/action_add_edit_task_fragment_dest_to_task_detail_fragment_dest"
+            app:destination="@id/task_detail_fragment_dest" />
     </fragment>
     <argument
         android:name="userMessage"

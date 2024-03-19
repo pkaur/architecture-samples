@@ -108,6 +108,16 @@
                         android:text="@{viewmodel.task.description}"
                         android:textAppearance="?android:attr/textAppearanceMedium" />
 
+                    <TextView
+                        android:id="@+id/task_detail_comment_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/task_detail_description_text"
+                        android:layout_toRightOf="@id/task_detail_complete_checkbox"
+                        android:paddingTop="1dp"
+                        android:text="@{viewmodel.task.comment}"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
                 </RelativeLayout>
             </LinearLayout>
         </com.example.android.architecture.blueprints.todoapp.ScrollChildSwipeRefreshLayout>

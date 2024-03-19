@@ -40,6 +40,8 @@ class AddEditTaskViewModel(
     // Two-way databinding, exposing MutableLiveData
     val description = MutableLiveData<String>()
 
+    val comment = MutableLiveData<String>()
+
     private val _dataLoading = MutableLiveData<Boolean>()
     val dataLoading: LiveData<Boolean> = _dataLoading
 
@@ -90,6 +92,7 @@ class AddEditTaskViewModel(
     private fun onTaskLoaded(task: Task) {
         title.value = task.title
         description.value = task.description
+        comment.value = task.comment
         taskCompleted = task.isCompleted
         _dataLoading.value = false
         isDataLoaded = true
@@ -103,6 +106,7 @@ class AddEditTaskViewModel(
     fun saveTask() {
         val currentTitle = title.value
         val currentDescription = description.value
+        val currentComment = comment.value
 
         if (currentTitle == null || currentDescription == null) {
             _snackbarText.value = Event(R.string.empty_task_message)
@@ -115,9 +119,9 @@ class AddEditTaskViewModel(
 
         val currentTaskId = taskId
         if (isNewTask || currentTaskId == null) {
-            createTask(Task(currentTitle, currentDescription))
+            createTask(Task(currentTitle, currentDescription, currentComment?:""))
         } else {
-            val task = Task(currentTitle, currentDescription, taskCompleted, currentTaskId)
+            val task = Task(currentTitle, currentDescription, currentComment?:"",taskCompleted, currentTaskId)
             updateTask(task)
         }
     }
